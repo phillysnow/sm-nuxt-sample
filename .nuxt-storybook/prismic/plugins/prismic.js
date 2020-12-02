@@ -16,7 +16,7 @@ export default async (context, inject) => {
 
   let api = {}
   try {
-    api = await Prismic.api('https://nuxt-sm-phil.cdn.prismic.io/api/v2', Object.assign({}, options,  {}))
+    api = await Prismic.api('https://your-repo-name.cdn.prismic.io/api/v2', Object.assign({}, options,  {}))
   } catch (error) {
     console.error(error)
     console.error("Failed to init Prismic API, preventing app fatal error.")
@@ -28,7 +28,7 @@ export default async (context, inject) => {
         return api
       },
       apiEndpoint() {
-        return 'https://nuxt-sm-phil.cdn.prismic.io/api/v2'
+        return 'https://your-repo-name.cdn.prismic.io/api/v2'
       },
       predicates() {
         return Prismic.Predicates
@@ -96,7 +96,7 @@ export default async (context, inject) => {
     window.onNuxtReady && window.onNuxtReady(() => {
       const script = document.createElement('script')
 
-      script.src = '//static.cdn.prismic.io/prismic.min.js?repo=nuxt-sm-phil&new=true'
+      script.src = '//static.cdn.prismic.io/prismic.min.js?repo=your-repo-name&new=true'
       document.body.appendChild(script)
     })
   }
@@ -117,7 +117,7 @@ export default async (context, inject) => {
       }
       return cookie
     }
-    const repo = 'nuxt-sm-phil'
+    const repo = 'your-repo-name'
     const previewCookie = getPreviewCookie()
     // Used in prismic_preview middleware
     prismic.isPreview = previewCookie && previewCookie[`${repo}.prismic.io`] && previewCookie[`${repo}.prismic.io`].preview
